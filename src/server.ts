@@ -3,6 +3,7 @@ import express, { Application } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 // Setup and configure swagger
 import swaggerJsdoc from 'swagger-jsdoc';
@@ -35,17 +36,23 @@ app.use(helmet());
 // Use json responses
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN ?? '*',
+  })
+);
+
 // Configure swagger docs
 const specs = swaggerJsdoc(swaggerOptions);
 
 // Default endpoint re-route if required
 app.get('/', (_, res) => res.json({ message: 'Express + TypeScript Server' }));
 
-// Main entry point for the api's
-app.use('/', authentication, logger, apiHandler);
-
 // Swagger endpoint
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+// Main entry point for the api's
+app.use('/', logger, apiHandler);
 
 // Setup middlewares
 app.use(notFound);
