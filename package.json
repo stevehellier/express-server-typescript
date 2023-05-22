@@ -1,0 +1,48 @@
+{
+  "name": "express-server-typescript",
+  "version": "0.1.0",
+  "description": "Express server using typescript and swagger docs",
+  "main": "server.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf node_modules && rm -rf dist",
+    "clean:dev": "rm -rf  node_modules",
+    "clean:dist": "rm -rf dist",
+    "dev": "npx nodemon src/server.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "rebuild": "npm run clean && npm ci && npm run build",
+    "reinstall": "npm run clean && npm ci",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "ip": "^1.1.8",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/ip": "^1.1.0",
+    "@types/morgan": "^1.9.4",
+    "@types/swagger-jsdoc": "^6.0.1",
+    "@types/swagger-ui-express": "^4.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}

@@ -1,0 +1,66 @@
+components:
+  schemas:
+    Weather:
+      type: object
+      properties:
+        dateFormated:
+          type: string
+          description: the date
+        temperatureC:
+          type: string
+          description: the temperature in degrees C
+        temperatureF:
+          type: string
+          description: the temperature in degrees F
+        summary:
+          type: string
+          description: datesummary of the weather
+      example:
+        [
+            {
+                "dateFormated": "22/05/2023",
+                "temperatureC": 10,
+                "temperatureF": 49.99,
+                "summary": "Sweltering"
+            },
+            {
+                "dateFormated": "23/05/2023",
+                "temperatureC": 11.48,
+                "temperatureF": 52.65,
+                "summary": "Balmy"
+            },
+            {
+                "dateFormated": "24/05/2023",
+                "temperatureC": 4.96,
+                "temperatureF": 40.92,
+                "summary": "Balmy"
+            },
+            {
+                "dateFormated": "25/05/2023",
+                "temperatureC": 20.33,
+                "temperatureF": 68.56,
+                "summary": "Scorching"
+            },
+            {
+                "dateFormated": "26/05/2023",
+                "temperatureC": 9.44,
+                "temperatureF": 48.98,
+                "summary": "Sweltering"
+            }
+        ]
+tags:
+  name: Weather
+  description: Weather API endpoint
+paths:
+ /weather:
+  get:
+    summary: Gets the current weather for the next 5 days
+    tags: [Weather]
+    responses:
+      200:
+        description: Returns a array of weather objects
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Weather'
+      
