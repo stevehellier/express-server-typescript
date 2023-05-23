@@ -11,7 +11,7 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerOptions from './swagger/config';
 
 // Import middlewares
-import { notFound, errorHandler, authentication, logger } from './middlewares';
+import { notFound, errorHandler, logger } from './middlewares';
 import apiHandler from './api/apiHandler';
 
 // Helpers
