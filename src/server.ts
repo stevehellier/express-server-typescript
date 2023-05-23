@@ -22,7 +22,7 @@ dotenv.config();
 const app: Application = express();
 const PORT = process.env.SERVER_PORT ?? 4000;
 
-// Setup logging
+// Setup access logging
 if ((app.get('env') === 'production' && process.env.ENABLE_LOGGING) ?? false) {
   logging.setup();
   app.use(morgan('common', { stream: logging.getAccessLogFileStream() }));
@@ -30,7 +30,7 @@ if ((app.get('env') === 'production' && process.env.ENABLE_LOGGING) ?? false) {
   app.use(morgan('dev'));
 }
 
-// Configure with more secure http headers
+// Securing HTTP response headers
 app.use(helmet());
 
 // Use json responses
