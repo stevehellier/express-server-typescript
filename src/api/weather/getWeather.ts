@@ -63,6 +63,7 @@ const getWeather: RequestHandler = (
 
     cachedData.weather = weather;
     cachedData.cachedTime = cachedTime;
+
     return res.json(cachedData);
   } catch (error) {
     return next(error);

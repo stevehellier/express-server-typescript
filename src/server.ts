@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { rateLimit } from 'express-rate-limit';
 
 // Setup and configure swagger
 import swaggerJsdoc from 'swagger-jsdoc';
@@ -18,6 +19,11 @@ import apiHandler from './api/apiHandler';
 import logging from './helpers/logging';
 
 dotenv.config();
+
+const limiter = rateLimit({
+  windowMs: 15 * 30 * 1000,
+  max: 100,
+});
 
 const app: Application = express();
 const PORT = process.env.SERVER_PORT ?? 4000;
@@ -41,6 +47,8 @@ app.use(
     origin: process.env.CORS_ORIGIN ?? '*',
   })
 );
+
+app.use(limiter);
 
 // Configure swagger docs
 const specs = swaggerJsdoc(swaggerOptions);
