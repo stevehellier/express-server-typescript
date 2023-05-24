@@ -13,7 +13,7 @@
     "lint:fix": "eslint . --fix",
     "rebuild": "npm run clean && npm ci && npm run build",
     "reinstall": "npm run clean && npm ci",
-    "start": "node dist/index.js"
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
