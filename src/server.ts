@@ -69,6 +69,6 @@ app.use(errorHandler);
 // Start the server
 app.listen(PORT, () => {
   console.log(
-    `⚡️[server]: Server is running at http://localhost:${PORT}. Swagger Docs http://localhost:${PORT}/api-docs`
+    `⚡️[server]: Server is running at http://localhost:${PORT}. Swagger Docs http://localhost:${PORT}/api-docs\n PID: ${process.pid}`
   );
 });
