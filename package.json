@@ -4,7 +4,7 @@
   "description": "Express server using typescript and swagger docs",
   "main": "server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --project tsconfig.build.json",
     "clean": "rm -rf node_modules && rm -rf dist",
     "clean:dev": "rm -rf  node_modules",
     "clean:dist": "rm -rf dist",
