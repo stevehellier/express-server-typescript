@@ -8,7 +8,7 @@ const logger = (req: Request, res: Response, next: NextFunction) => {
     baseUrl,
     method,
   };
-  console.log(log);
+  // console.log(log);
   return next();
 };
 
