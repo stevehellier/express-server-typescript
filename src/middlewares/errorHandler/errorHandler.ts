@@ -9,9 +9,7 @@ const errorHandler: ErrorRequestHandler = (
 ) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
 
-  return res
-    .status(statusCode)
-    .send({ message: error.message, stack: error.stack });
+  return res.status(statusCode).send({ message: error.message });
 };
 
 export default errorHandler;

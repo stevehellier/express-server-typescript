@@ -17,4 +17,18 @@ describe('GET /', () => {
         done
       );
   });
+
+  it('response withe 404 not found page', (done) => {
+    request(app)
+      .get('/banana')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(
+        404,
+        {
+          message: 'Not found - /banana',
+        },
+        done
+      );
+  });
 });
