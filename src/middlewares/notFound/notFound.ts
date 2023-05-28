@@ -6,7 +6,7 @@ const notFound: RequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  const error = new Error(`Not found -  ${req.originalUrl}`);
+  const error = new Error(`Not found - ${req.originalUrl}`);
   res.status(404);
   next(error);
 };
