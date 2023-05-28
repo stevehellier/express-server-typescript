@@ -1,13 +1,15 @@
 import { Router } from 'express';
 
 // Import middlewares
-// import { authentication } from '../middlewares';
+import { authentication } from '../middlewares';
 
-// Import Weather enpoint
+// Import enpoints
 import getWeather from './weather';
+import getTestAuth from './testAuth';
 
 const router = Router();
 
 router.get('/weather', getWeather);
+router.get('/authtest', authentication, getTestAuth);
 
 export default router;
